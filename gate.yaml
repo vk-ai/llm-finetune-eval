@@ -1,0 +1,16 @@
+# Regression gate: candidate (LoRA fine-tune) vs baseline (the same base model, no adapter),
+# on the same 320 held-out test provisions. Rules 1-4 are llm-eval-lab's run_gate; rule 5 is ours.
+# These thresholds were written down before any fine-tuned number (validation or test) existed.
+max_drop:            # 1. absolute drop allowed vs the baseline
+  macro_f1: 0.0
+  accuracy: 0.0
+min:                 # 2. hard floor
+  macro_f1: 0.80
+significance:        # 3. McNemar (exact, paired): candidate must not be significantly worse
+  alpha: 0.05
+allow_testset_change: false   # 4. refuse to compare runs made on a different test-set file
+require_improvement: # 5. a fine-tune has to earn its keep: paired permutation test + bootstrap CI
+  metric: macro_f1
+  min_delta: 0.05
+  alpha: 0.05
+  n_resamples: 1000

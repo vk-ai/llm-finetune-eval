@@ -1,0 +1,76 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install (CPU-only torch)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev]"
+      - name: Unit tests (offline, tiny random-init model)
+        env:
+          HF_HUB_OFFLINE: "1"
+          TRANSFORMERS_OFFLINE: "1"
+        run: pytest -q
+      - name: Regression gate on the committed real-run predictions
+        run: |
+          lfe report --out /tmp/eval.json
+          cmp <(python -m json.tool --sort-keys /tmp/eval.json) <(python -m json.tool --sort-keys reports/eval.json)
+          lfe gate
+          # negative control: the base model as the candidate must FAIL against the fine-tune
+          if lfe gate --baseline finetuned --candidate base > /dev/null; then echo "negative control passed?!"; exit 1; fi
+
+  smoke-finetune:
+    # Optional end-to-end run on a 4.9 MB random-weight Qwen2 test model: train 3 LoRA steps,
+    # score base and adapter, build the report and run the gate. Checks plumbing, not quality.
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install (CPU-only torch)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e .
+      - name: Smoke fine-tune
+        env:
+          M: trl-internal-testing/tiny-Qwen2ForCausalLM-2.5
+        run: |
+          lfe train --model "$M" --max-steps 3 --limit 16 --out /tmp/smoke/adapter --report /tmp/smoke/train.json
+          lfe predict --model "$M" --name base --limit 32 --runs /tmp/smoke/runs
+          lfe predict --model "$M" --adapter /tmp/smoke/adapter --name finetuned --limit 32 --runs /tmp/smoke/runs
+          python - <<'PY'
+          import json
+          rows = [json.loads(l) for l in open("data/test.jsonl")][:32]
+          open("/tmp/smoke/test.jsonl", "w").write("".join(json.dumps(r, sort_keys=True) + "\n" for r in rows))
+          PY
+          lfe report --data /tmp/smoke --runs /tmp/smoke/runs --out /tmp/smoke/eval.json
+          set +e
+          lfe gate --data /tmp/smoke --runs /tmp/smoke/runs --report /tmp/smoke/eval.json
+          rc=$?
+          echo "gate exit code $rc (a random-weight model is expected to FAIL the improvement rule)"
+          test "$rc" -le 1

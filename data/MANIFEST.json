@@ -1,0 +1,69 @@
+{
+  "excluded_cross_split_duplicates": {
+    "test": 0,
+    "train": 5,
+    "validation": 0
+  },
+  "files": {
+    "test.jsonl": {
+      "labels": {
+        "Base Salary": 40,
+        "Benefits": 40,
+        "Compliance With Laws": 40,
+        "Confidentiality": 40,
+        "Non-Disparagement": 40,
+        "Tax Withholdings": 40,
+        "Terminations": 40,
+        "Vacations": 40
+      },
+      "n": 320,
+      "sha256": "65a021f42047983f3882c2d8647c10ef34d7406fcbfc3ecc074184684134345f"
+    },
+    "train.jsonl": {
+      "labels": {
+        "Base Salary": 100,
+        "Benefits": 100,
+        "Compliance With Laws": 100,
+        "Confidentiality": 100,
+        "Non-Disparagement": 100,
+        "Tax Withholdings": 100,
+        "Terminations": 100,
+        "Vacations": 100
+      },
+      "n": 800,
+      "sha256": "c7f59188f7fd5aecec9b4ccaf7062f753c166069f39049aeddacb7da8ab1edfb"
+    },
+    "validation.jsonl": {
+      "labels": {
+        "Base Salary": 25,
+        "Benefits": 25,
+        "Compliance With Laws": 25,
+        "Confidentiality": 25,
+        "Non-Disparagement": 25,
+        "Tax Withholdings": 25,
+        "Terminations": 25,
+        "Vacations": 25
+      },
+      "n": 200,
+      "sha256": "c1b2b1dbfb6e28e6dd5d60f10b96645d65c611a86d33666b1e25e857e9029d15"
+    }
+  },
+  "labels": [
+    "Base Salary",
+    "Benefits",
+    "Compliance With Laws",
+    "Confidentiality",
+    "Non-Disparagement",
+    "Tax Withholdings",
+    "Terminations",
+    "Vacations"
+  ],
+  "license": "CC BY 4.0",
+  "per_class": {
+    "test": 40,
+    "train": 100,
+    "validation": 25
+  },
+  "seed": 0,
+  "source": "coastalcph/lex_glue@c23fdff1a6bf74e0e1a71cb86f1e781d37da888c (config ledgar)"
+}

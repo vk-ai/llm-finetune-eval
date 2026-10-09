@@ -1,0 +1,205 @@
+{
+  "testset": {
+    "name": "test.jsonl",
+    "sha256": "65a021f42047983f3882c2d8647c10ef34d7406fcbfc3ecc074184684134345f",
+    "n": 320
+  },
+  "labels": [
+    "Base Salary",
+    "Benefits",
+    "Compliance With Laws",
+    "Confidentiality",
+    "Non-Disparagement",
+    "Tax Withholdings",
+    "Terminations",
+    "Vacations"
+  ],
+  "systems": {
+    "base": {
+      "accuracy": 0.721875,
+      "macro_precision": 0.7470548174499149,
+      "macro_recall": 0.721875,
+      "macro_f1": 0.6957145871706976,
+      "micro_f1": 0.721875,
+      "per_class": {
+        "Base Salary": {
+          "precision": 0.975609756097561,
+          "recall": 1.0,
+          "f1": 0.9876543209876543,
+          "support": 40
+        },
+        "Benefits": {
+          "precision": 0.9473684210526315,
+          "recall": 0.45,
+          "f1": 0.6101694915254237,
+          "support": 40
+        },
+        "Compliance With Laws": {
+          "precision": 0.43820224719101125,
+          "recall": 0.975,
+          "f1": 0.6046511627906976,
+          "support": 40
+        },
+        "Confidentiality": {
+          "precision": 0.5396825396825397,
+          "recall": 0.85,
+          "f1": 0.6601941747572816,
+          "support": 40
+        },
+        "Non-Disparagement": {
+          "precision": 0.16666666666666666,
+          "recall": 0.025,
+          "f1": 0.04347826086956522,
+          "support": 40
+        },
+        "Tax Withholdings": {
+          "precision": 0.9459459459459459,
+          "recall": 0.875,
+          "f1": 0.9090909090909091,
+          "support": 40
+        },
+        "Terminations": {
+          "precision": 0.9629629629629629,
+          "recall": 0.65,
+          "f1": 0.7761194029850746,
+          "support": 40
+        },
+        "Vacations": {
+          "precision": 1.0,
+          "recall": 0.95,
+          "f1": 0.9743589743589743,
+          "support": 40
+        }
+      },
+      "ci": {
+        "accuracy": {
+          "point": 0.7219,
+          "low": 0.6719,
+          "high": 0.7719,
+          "level": 0.95
+        },
+        "macro_f1": {
+          "point": 0.6957,
+          "low": 0.6546,
+          "high": 0.734,
+          "level": 0.95
+        }
+      },
+      "latency_ms": {
+        "p50": 1028.1,
+        "p95": 1599.9
+      }
+    },
+    "finetuned": {
+      "accuracy": 0.95625,
+      "macro_precision": 0.9581255384626768,
+      "macro_recall": 0.95625,
+      "macro_f1": 0.9558984102992454,
+      "micro_f1": 0.95625,
+      "per_class": {
+        "Base Salary": {
+          "precision": 0.975609756097561,
+          "recall": 1.0,
+          "f1": 0.9876543209876543,
+          "support": 40
+        },
+        "Benefits": {
+          "precision": 0.9459459459459459,
+          "recall": 0.875,
+          "f1": 0.9090909090909091,
+          "support": 40
+        },
+        "Compliance With Laws": {
+          "precision": 1.0,
+          "recall": 0.95,
+          "f1": 0.9743589743589743,
+          "support": 40
+        },
+        "Confidentiality": {
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.9333333333333333,
+          "support": 40
+        },
+        "Non-Disparagement": {
+          "precision": 0.9090909090909091,
+          "recall": 1.0,
+          "f1": 0.9523809523809523,
+          "support": 40
+        },
+        "Tax Withholdings": {
+          "precision": 0.9523809523809523,
+          "recall": 1.0,
+          "f1": 0.975609756097561,
+          "support": 40
+        },
+        "Terminations": {
+          "precision": 0.9069767441860465,
+          "recall": 0.975,
+          "f1": 0.9397590361445783,
+          "support": 40
+        },
+        "Vacations": {
+          "precision": 0.975,
+          "recall": 0.975,
+          "f1": 0.975,
+          "support": 40
+        }
+      },
+      "ci": {
+        "accuracy": {
+          "point": 0.9563,
+          "low": 0.9313,
+          "high": 0.975,
+          "level": 0.95
+        },
+        "macro_f1": {
+          "point": 0.9559,
+          "low": 0.9315,
+          "high": 0.9752,
+          "level": 0.95
+        }
+      },
+      "latency_ms": {
+        "p50": 1094.5,
+        "p95": 1698.0
+      }
+    }
+  },
+  "comparison": {
+    "baseline": "base",
+    "candidate": "finetuned",
+    "mcnemar": {
+      "b": 5,
+      "c": 80,
+      "p_exact": 1.80577e-18,
+      "chi2_cc": 64.4235,
+      "p_chi2_cc": 1.00353e-15
+    },
+    "permutation": {
+      "accuracy": {
+        "metric": "accuracy",
+        "a": 0.721875,
+        "b": 0.95625,
+        "delta": 0.234375,
+        "p_value": 0.000999001,
+        "ci_low": 0.184375,
+        "ci_high": 0.2875,
+        "n_resamples": 1000
+      },
+      "macro_f1": {
+        "metric": "macro_f1",
+        "a": 0.695715,
+        "b": 0.955898,
+        "delta": 0.260184,
+        "p_value": 0.000999001,
+        "ci_low": 0.220272,
+        "ci_high": 0.302911,
+        "n_resamples": 1000
+      }
+    }
+  },
+  "mt": {
+    "systems": {}
+  }
+}

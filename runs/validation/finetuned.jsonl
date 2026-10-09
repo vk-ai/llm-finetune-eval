@@ -1,0 +1,200 @@
+{"id": "va0000", "label": "Tax Withholdings", "latency_ms": 953.0, "margin": 0.6384, "pred": "Benefits"}
+{"id": "va0001", "label": "Tax Withholdings", "latency_ms": 1012.2, "margin": 8.9732, "pred": "Tax Withholdings"}
+{"id": "va0002", "label": "Base Salary", "latency_ms": 1107.9, "margin": 7.5119, "pred": "Base Salary"}
+{"id": "va0003", "label": "Base Salary", "latency_ms": 709.7, "margin": 8.4724, "pred": "Base Salary"}
+{"id": "va0004", "label": "Vacations", "latency_ms": 993.3, "margin": 10.0579, "pred": "Vacations"}
+{"id": "va0005", "label": "Non-Disparagement", "latency_ms": 1325.5, "margin": 4.6215, "pred": "Non-Disparagement"}
+{"id": "va0006", "label": "Benefits", "latency_ms": 761.3, "margin": 0.0072, "pred": "Vacations"}
+{"id": "va0007", "label": "Compliance With Laws", "latency_ms": 1180.4, "margin": 8.9775, "pred": "Compliance With Laws"}
+{"id": "va0008", "label": "Benefits", "latency_ms": 806.3, "margin": 11.4146, "pred": "Benefits"}
+{"id": "va0009", "label": "Non-Disparagement", "latency_ms": 960.8, "margin": 5.2833, "pred": "Non-Disparagement"}
+{"id": "va0010", "label": "Non-Disparagement", "latency_ms": 977.9, "margin": 7.8587, "pred": "Non-Disparagement"}
+{"id": "va0011", "label": "Vacations", "latency_ms": 858.4, "margin": 10.3365, "pred": "Vacations"}
+{"id": "va0012", "label": "Confidentiality", "latency_ms": 871.4, "margin": 4.3824, "pred": "Non-Disparagement"}
+{"id": "va0013", "label": "Tax Withholdings", "latency_ms": 1235.1, "margin": 7.7814, "pred": "Tax Withholdings"}
+{"id": "va0014", "label": "Compliance With Laws", "latency_ms": 966.9, "margin": 8.2751, "pred": "Compliance With Laws"}
+{"id": "va0015", "label": "Benefits", "latency_ms": 868.9, "margin": 10.0615, "pred": "Benefits"}
+{"id": "va0016", "label": "Benefits", "latency_ms": 1069.5, "margin": 8.8037, "pred": "Benefits"}
+{"id": "va0017", "label": "Compliance With Laws", "latency_ms": 1078.1, "margin": 8.6276, "pred": "Compliance With Laws"}
+{"id": "va0018", "label": "Compliance With Laws", "latency_ms": 1101.2, "margin": 8.5036, "pred": "Compliance With Laws"}
+{"id": "va0019", "label": "Terminations", "latency_ms": 1074.5, "margin": 7.6745, "pred": "Terminations"}
+{"id": "va0020", "label": "Terminations", "latency_ms": 1235.8, "margin": 8.3509, "pred": "Terminations"}
+{"id": "va0021", "label": "Base Salary", "latency_ms": 769.6, "margin": 9.0654, "pred": "Base Salary"}
+{"id": "va0022", "label": "Compliance With Laws", "latency_ms": 1125.0, "margin": 6.7322, "pred": "Compliance With Laws"}
+{"id": "va0023", "label": "Confidentiality", "latency_ms": 1211.6, "margin": 7.0778, "pred": "Confidentiality"}
+{"id": "va0024", "label": "Confidentiality", "latency_ms": 881.5, "margin": 6.5592, "pred": "Confidentiality"}
+{"id": "va0025", "label": "Benefits", "latency_ms": 1080.4, "margin": 6.7702, "pred": "Benefits"}
+{"id": "va0026", "label": "Vacations", "latency_ms": 720.8, "margin": 9.514, "pred": "Vacations"}
+{"id": "va0027", "label": "Compliance With Laws", "latency_ms": 950.0, "margin": 4.4044, "pred": "Compliance With Laws"}
+{"id": "va0028", "label": "Tax Withholdings", "latency_ms": 943.0, "margin": 3.1326, "pred": "Tax Withholdings"}
+{"id": "va0029", "label": "Non-Disparagement", "latency_ms": 1153.5, "margin": 6.5057, "pred": "Non-Disparagement"}
+{"id": "va0030", "label": "Non-Disparagement", "latency_ms": 867.2, "margin": 5.5915, "pred": "Non-Disparagement"}
+{"id": "va0031", "label": "Confidentiality", "latency_ms": 917.8, "margin": 4.4138, "pred": "Confidentiality"}
+{"id": "va0032", "label": "Vacations", "latency_ms": 741.1, "margin": 7.7877, "pred": "Vacations"}
+{"id": "va0033", "label": "Non-Disparagement", "latency_ms": 891.9, "margin": 6.7154, "pred": "Non-Disparagement"}
+{"id": "va0034", "label": "Benefits", "latency_ms": 1260.4, "margin": 7.0493, "pred": "Benefits"}
+{"id": "va0035", "label": "Base Salary", "latency_ms": 1059.3, "margin": 8.5136, "pred": "Base Salary"}
+{"id": "va0036", "label": "Benefits", "latency_ms": 997.1, "margin": 8.9186, "pred": "Benefits"}
+{"id": "va0037", "label": "Compliance With Laws", "latency_ms": 924.8, "margin": 3.037, "pred": "Compliance With Laws"}
+{"id": "va0038", "label": "Tax Withholdings", "latency_ms": 1159.0, "margin": 8.1295, "pred": "Tax Withholdings"}
+{"id": "va0039", "label": "Tax Withholdings", "latency_ms": 905.7, "margin": 7.994, "pred": "Tax Withholdings"}
+{"id": "va0040", "label": "Tax Withholdings", "latency_ms": 997.1, "margin": 6.2932, "pred": "Tax Withholdings"}
+{"id": "va0041", "label": "Terminations", "latency_ms": 1023.0, "margin": 7.4983, "pred": "Benefits"}
+{"id": "va0042", "label": "Compliance With Laws", "latency_ms": 925.4, "margin": 4.4647, "pred": "Compliance With Laws"}
+{"id": "va0043", "label": "Compliance With Laws", "latency_ms": 886.1, "margin": 9.8519, "pred": "Compliance With Laws"}
+{"id": "va0044", "label": "Confidentiality", "latency_ms": 930.3, "margin": 7.4854, "pred": "Confidentiality"}
+{"id": "va0045", "label": "Terminations", "latency_ms": 914.1, "margin": 6.6614, "pred": "Terminations"}
+{"id": "va0046", "label": "Terminations", "latency_ms": 1056.3, "margin": 9.5919, "pred": "Terminations"}
+{"id": "va0047", "label": "Non-Disparagement", "latency_ms": 992.2, "margin": 7.8887, "pred": "Non-Disparagement"}
+{"id": "va0048", "label": "Vacations", "latency_ms": 695.1, "margin": 10.1962, "pred": "Vacations"}
+{"id": "va0049", "label": "Vacations", "latency_ms": 949.2, "margin": 10.9521, "pred": "Vacations"}
+{"id": "va0050", "label": "Non-Disparagement", "latency_ms": 925.0, "margin": 7.6593, "pred": "Non-Disparagement"}
+{"id": "va0051", "label": "Compliance With Laws", "latency_ms": 1147.2, "margin": 8.4881, "pred": "Compliance With Laws"}
+{"id": "va0052", "label": "Benefits", "latency_ms": 1146.1, "margin": 10.0461, "pred": "Benefits"}
+{"id": "va0053", "label": "Confidentiality", "latency_ms": 1190.2, "margin": 3.932, "pred": "Confidentiality"}
+{"id": "va0054", "label": "Confidentiality", "latency_ms": 1170.8, "margin": 6.2588, "pred": "Confidentiality"}
+{"id": "va0055", "label": "Compliance With Laws", "latency_ms": 1232.7, "margin": 8.3563, "pred": "Compliance With Laws"}
+{"id": "va0056", "label": "Tax Withholdings", "latency_ms": 1166.3, "margin": 8.253, "pred": "Tax Withholdings"}
+{"id": "va0057", "label": "Confidentiality", "latency_ms": 916.1, "margin": 7.4993, "pred": "Confidentiality"}
+{"id": "va0058", "label": "Tax Withholdings", "latency_ms": 821.2, "margin": 7.326, "pred": "Tax Withholdings"}
+{"id": "va0059", "label": "Tax Withholdings", "latency_ms": 814.4, "margin": 8.2911, "pred": "Tax Withholdings"}
+{"id": "va0060", "label": "Non-Disparagement", "latency_ms": 812.2, "margin": 6.4214, "pred": "Non-Disparagement"}
+{"id": "va0061", "label": "Base Salary", "latency_ms": 875.4, "margin": 6.5664, "pred": "Base Salary"}
+{"id": "va0062", "label": "Benefits", "latency_ms": 869.0, "margin": 6.5245, "pred": "Benefits"}
+{"id": "va0063", "label": "Tax Withholdings", "latency_ms": 1095.2, "margin": 6.8668, "pred": "Tax Withholdings"}
+{"id": "va0064", "label": "Confidentiality", "latency_ms": 1103.9, "margin": 4.3468, "pred": "Confidentiality"}
+{"id": "va0065", "label": "Base Salary", "latency_ms": 1240.6, "margin": 3.4061, "pred": "Base Salary"}
+{"id": "va0066", "label": "Benefits", "latency_ms": 1148.3, "margin": 5.8868, "pred": "Benefits"}
+{"id": "va0067", "label": "Compliance With Laws", "latency_ms": 1072.4, "margin": 8.8382, "pred": "Compliance With Laws"}
+{"id": "va0068", "label": "Compliance With Laws", "latency_ms": 1031.9, "margin": 7.0549, "pred": "Compliance With Laws"}
+{"id": "va0069", "label": "Compliance With Laws", "latency_ms": 959.0, "margin": 8.271, "pred": "Compliance With Laws"}
+{"id": "va0070", "label": "Confidentiality", "latency_ms": 1581.8, "margin": 6.9557, "pred": "Confidentiality"}
+{"id": "va0071", "label": "Benefits", "latency_ms": 1037.4, "margin": 0.4583, "pred": "Base Salary"}
+{"id": "va0072", "label": "Non-Disparagement", "latency_ms": 1206.4, "margin": 4.7659, "pred": "Non-Disparagement"}
+{"id": "va0073", "label": "Vacations", "latency_ms": 1002.6, "margin": 9.5713, "pred": "Vacations"}
+{"id": "va0074", "label": "Terminations", "latency_ms": 1332.4, "margin": 8.4723, "pred": "Terminations"}
+{"id": "va0075", "label": "Benefits", "latency_ms": 1060.6, "margin": 8.366, "pred": "Benefits"}
+{"id": "va0076", "label": "Vacations", "latency_ms": 985.3, "margin": 9.5929, "pred": "Vacations"}
+{"id": "va0077", "label": "Base Salary", "latency_ms": 1046.2, "margin": 6.365, "pred": "Base Salary"}
+{"id": "va0078", "label": "Tax Withholdings", "latency_ms": 1041.3, "margin": 7.9307, "pred": "Tax Withholdings"}
+{"id": "va0079", "label": "Vacations", "latency_ms": 926.9, "margin": 9.835, "pred": "Vacations"}
+{"id": "va0080", "label": "Base Salary", "latency_ms": 1284.7, "margin": 4.4391, "pred": "Base Salary"}
+{"id": "va0081", "label": "Confidentiality", "latency_ms": 1082.3, "margin": 2.7602, "pred": "Confidentiality"}
+{"id": "va0082", "label": "Vacations", "latency_ms": 746.0, "margin": 9.3596, "pred": "Vacations"}
+{"id": "va0083", "label": "Confidentiality", "latency_ms": 962.4, "margin": 5.6529, "pred": "Confidentiality"}
+{"id": "va0084", "label": "Non-Disparagement", "latency_ms": 1379.6, "margin": 5.1107, "pred": "Non-Disparagement"}
+{"id": "va0085", "label": "Tax Withholdings", "latency_ms": 750.7, "margin": 7.4847, "pred": "Tax Withholdings"}
+{"id": "va0086", "label": "Non-Disparagement", "latency_ms": 955.6, "margin": 5.2917, "pred": "Non-Disparagement"}
+{"id": "va0087", "label": "Base Salary", "latency_ms": 868.5, "margin": 7.6043, "pred": "Base Salary"}
+{"id": "va0088", "label": "Benefits", "latency_ms": 748.5, "margin": 5.6984, "pred": "Benefits"}
+{"id": "va0089", "label": "Base Salary", "latency_ms": 1249.3, "margin": 2.98, "pred": "Base Salary"}
+{"id": "va0090", "label": "Terminations", "latency_ms": 1233.1, "margin": 10.1136, "pred": "Terminations"}
+{"id": "va0091", "label": "Non-Disparagement", "latency_ms": 1121.8, "margin": 1.0713, "pred": "Non-Disparagement"}
+{"id": "va0092", "label": "Base Salary", "latency_ms": 1156.9, "margin": 6.558, "pred": "Base Salary"}
+{"id": "va0093", "label": "Base Salary", "latency_ms": 1555.1, "margin": 6.2414, "pred": "Base Salary"}
+{"id": "va0094", "label": "Confidentiality", "latency_ms": 1355.8, "margin": 6.3552, "pred": "Confidentiality"}
+{"id": "va0095", "label": "Compliance With Laws", "latency_ms": 1255.0, "margin": 5.9858, "pred": "Compliance With Laws"}
+{"id": "va0096", "label": "Compliance With Laws", "latency_ms": 1234.9, "margin": 1.5774, "pred": "Compliance With Laws"}
+{"id": "va0097", "label": "Tax Withholdings", "latency_ms": 1200.6, "margin": 1.2616, "pred": "Tax Withholdings"}
+{"id": "va0098", "label": "Base Salary", "latency_ms": 1104.3, "margin": 8.692, "pred": "Base Salary"}
+{"id": "va0099", "label": "Confidentiality", "latency_ms": 1033.5, "margin": 6.0039, "pred": "Confidentiality"}
+{"id": "va0100", "label": "Benefits", "latency_ms": 929.2, "margin": 9.7246, "pred": "Benefits"}
+{"id": "va0101", "label": "Benefits", "latency_ms": 797.3, "margin": 7.8492, "pred": "Benefits"}
+{"id": "va0102", "label": "Benefits", "latency_ms": 888.9, "margin": 8.3475, "pred": "Benefits"}
+{"id": "va0103", "label": "Tax Withholdings", "latency_ms": 1124.1, "margin": 0.5562, "pred": "Tax Withholdings"}
+{"id": "va0104", "label": "Confidentiality", "latency_ms": 813.5, "margin": 7.244, "pred": "Confidentiality"}
+{"id": "va0105", "label": "Base Salary", "latency_ms": 913.6, "margin": 6.5055, "pred": "Base Salary"}
+{"id": "va0106", "label": "Base Salary", "latency_ms": 996.2, "margin": 4.7025, "pred": "Base Salary"}
+{"id": "va0107", "label": "Vacations", "latency_ms": 848.4, "margin": 10.0419, "pred": "Vacations"}
+{"id": "va0108", "label": "Confidentiality", "latency_ms": 932.6, "margin": 6.8408, "pred": "Confidentiality"}
+{"id": "va0109", "label": "Compliance With Laws", "latency_ms": 910.2, "margin": 8.71, "pred": "Compliance With Laws"}
+{"id": "va0110", "label": "Vacations", "latency_ms": 689.7, "margin": 9.7982, "pred": "Vacations"}
+{"id": "va0111", "label": "Non-Disparagement", "latency_ms": 962.2, "margin": 5.9365, "pred": "Non-Disparagement"}
+{"id": "va0112", "label": "Vacations", "latency_ms": 893.5, "margin": 9.6606, "pred": "Vacations"}
+{"id": "va0113", "label": "Terminations", "latency_ms": 1078.8, "margin": 10.2809, "pred": "Terminations"}
+{"id": "va0114", "label": "Terminations", "latency_ms": 1020.3, "margin": 11.3125, "pred": "Terminations"}
+{"id": "va0115", "label": "Terminations", "latency_ms": 965.5, "margin": 7.6071, "pred": "Terminations"}
+{"id": "va0116", "label": "Benefits", "latency_ms": 1059.4, "margin": 11.4125, "pred": "Benefits"}
+{"id": "va0117", "label": "Tax Withholdings", "latency_ms": 1153.9, "margin": 8.5329, "pred": "Tax Withholdings"}
+{"id": "va0118", "label": "Tax Withholdings", "latency_ms": 907.6, "margin": 8.3789, "pred": "Tax Withholdings"}
+{"id": "va0119", "label": "Compliance With Laws", "latency_ms": 1189.1, "margin": 0.6831, "pred": "Compliance With Laws"}
+{"id": "va0120", "label": "Confidentiality", "latency_ms": 1258.1, "margin": 7.218, "pred": "Confidentiality"}
+{"id": "va0121", "label": "Non-Disparagement", "latency_ms": 1264.2, "margin": 6.2356, "pred": "Non-Disparagement"}
+{"id": "va0122", "label": "Compliance With Laws", "latency_ms": 1282.1, "margin": 6.6537, "pred": "Compliance With Laws"}
+{"id": "va0123", "label": "Base Salary", "latency_ms": 965.4, "margin": 6.919, "pred": "Base Salary"}
+{"id": "va0124", "label": "Tax Withholdings", "latency_ms": 1084.7, "margin": 3.3086, "pred": "Tax Withholdings"}
+{"id": "va0125", "label": "Confidentiality", "latency_ms": 781.1, "margin": 7.2575, "pred": "Confidentiality"}
+{"id": "va0126", "label": "Tax Withholdings", "latency_ms": 861.8, "margin": 7.5749, "pred": "Tax Withholdings"}
+{"id": "va0127", "label": "Base Salary", "latency_ms": 926.2, "margin": 7.3785, "pred": "Base Salary"}
+{"id": "va0128", "label": "Benefits", "latency_ms": 968.9, "margin": 9.6407, "pred": "Benefits"}
+{"id": "va0129", "label": "Terminations", "latency_ms": 819.9, "margin": 7.3617, "pred": "Terminations"}
+{"id": "va0130", "label": "Base Salary", "latency_ms": 1136.2, "margin": 7.5922, "pred": "Base Salary"}
+{"id": "va0131", "label": "Non-Disparagement", "latency_ms": 780.0, "margin": 1.411, "pred": "Non-Disparagement"}
+{"id": "va0132", "label": "Terminations", "latency_ms": 880.3, "margin": 8.4604, "pred": "Terminations"}
+{"id": "va0133", "label": "Confidentiality", "latency_ms": 1267.2, "margin": 7.216, "pred": "Confidentiality"}
+{"id": "va0134", "label": "Tax Withholdings", "latency_ms": 1020.8, "margin": 4.6533, "pred": "Tax Withholdings"}
+{"id": "va0135", "label": "Base Salary", "latency_ms": 1067.9, "margin": 7.4713, "pred": "Base Salary"}
+{"id": "va0136", "label": "Terminations", "latency_ms": 1300.1, "margin": 7.501, "pred": "Terminations"}
+{"id": "va0137", "label": "Non-Disparagement", "latency_ms": 1149.0, "margin": 4.9733, "pred": "Non-Disparagement"}
+{"id": "va0138", "label": "Tax Withholdings", "latency_ms": 1380.7, "margin": 10.3023, "pred": "Tax Withholdings"}
+{"id": "va0139", "label": "Vacations", "latency_ms": 1110.5, "margin": 9.5491, "pred": "Vacations"}
+{"id": "va0140", "label": "Terminations", "latency_ms": 852.6, "margin": 6.3529, "pred": "Terminations"}
+{"id": "va0141", "label": "Compliance With Laws", "latency_ms": 871.7, "margin": 8.6448, "pred": "Compliance With Laws"}
+{"id": "va0142", "label": "Base Salary", "latency_ms": 706.5, "margin": 0.6276, "pred": "Benefits"}
+{"id": "va0143", "label": "Terminations", "latency_ms": 880.0, "margin": 6.7774, "pred": "Terminations"}
+{"id": "va0144", "label": "Benefits", "latency_ms": 765.4, "margin": 9.2874, "pred": "Benefits"}
+{"id": "va0145", "label": "Vacations", "latency_ms": 913.6, "margin": 8.0534, "pred": "Vacations"}
+{"id": "va0146", "label": "Non-Disparagement", "latency_ms": 964.9, "margin": 7.4245, "pred": "Non-Disparagement"}
+{"id": "va0147", "label": "Vacations", "latency_ms": 1054.8, "margin": 8.9233, "pred": "Vacations"}
+{"id": "va0148", "label": "Non-Disparagement", "latency_ms": 1166.6, "margin": 4.1644, "pred": "Non-Disparagement"}
+{"id": "va0149", "label": "Base Salary", "latency_ms": 934.7, "margin": 7.4782, "pred": "Base Salary"}
+{"id": "va0150", "label": "Terminations", "latency_ms": 1214.3, "margin": 3.99, "pred": "Terminations"}
+{"id": "va0151", "label": "Vacations", "latency_ms": 978.2, "margin": 11.0023, "pred": "Vacations"}
+{"id": "va0152", "label": "Confidentiality", "latency_ms": 1146.5, "margin": 5.5806, "pred": "Confidentiality"}
+{"id": "va0153", "label": "Non-Disparagement", "latency_ms": 899.3, "margin": 9.7715, "pred": "Non-Disparagement"}
+{"id": "va0154", "label": "Compliance With Laws", "latency_ms": 1151.2, "margin": 8.5466, "pred": "Compliance With Laws"}
+{"id": "va0155", "label": "Vacations", "latency_ms": 1104.2, "margin": 9.0143, "pred": "Vacations"}
+{"id": "va0156", "label": "Benefits", "latency_ms": 897.7, "margin": 6.4509, "pred": "Benefits"}
+{"id": "va0157", "label": "Vacations", "latency_ms": 1008.7, "margin": 10.4493, "pred": "Vacations"}
+{"id": "va0158", "label": "Benefits", "latency_ms": 1258.4, "margin": 5.6365, "pred": "Benefits"}
+{"id": "va0159", "label": "Terminations", "latency_ms": 998.0, "margin": 7.996, "pred": "Terminations"}
+{"id": "va0160", "label": "Base Salary", "latency_ms": 891.4, "margin": 8.0732, "pred": "Base Salary"}
+{"id": "va0161", "label": "Vacations", "latency_ms": 1034.7, "margin": 9.7623, "pred": "Vacations"}
+{"id": "va0162", "label": "Non-Disparagement", "latency_ms": 1225.8, "margin": 8.4258, "pred": "Non-Disparagement"}
+{"id": "va0163", "label": "Vacations", "latency_ms": 842.6, "margin": 9.0893, "pred": "Vacations"}
+{"id": "va0164", "label": "Vacations", "latency_ms": 889.6, "margin": 9.5082, "pred": "Vacations"}
+{"id": "va0165", "label": "Benefits", "latency_ms": 749.7, "margin": 9.3672, "pred": "Benefits"}
+{"id": "va0166", "label": "Terminations", "latency_ms": 1044.8, "margin": 7.6796, "pred": "Terminations"}
+{"id": "va0167", "label": "Terminations", "latency_ms": 776.3, "margin": 6.0421, "pred": "Terminations"}
+{"id": "va0168", "label": "Terminations", "latency_ms": 1057.0, "margin": 5.6354, "pred": "Terminations"}
+{"id": "va0169", "label": "Vacations", "latency_ms": 838.1, "margin": 9.6795, "pred": "Vacations"}
+{"id": "va0170", "label": "Compliance With Laws", "latency_ms": 1024.6, "margin": 7.0839, "pred": "Compliance With Laws"}
+{"id": "va0171", "label": "Terminations", "latency_ms": 1339.9, "margin": 4.8896, "pred": "Terminations"}
+{"id": "va0172", "label": "Confidentiality", "latency_ms": 1307.9, "margin": 7.8516, "pred": "Confidentiality"}
+{"id": "va0173", "label": "Non-Disparagement", "latency_ms": 1359.9, "margin": 2.3713, "pred": "Non-Disparagement"}
+{"id": "va0174", "label": "Compliance With Laws", "latency_ms": 1372.5, "margin": 9.9868, "pred": "Compliance With Laws"}
+{"id": "va0175", "label": "Benefits", "latency_ms": 1346.6, "margin": 9.9021, "pred": "Benefits"}
+{"id": "va0176", "label": "Compliance With Laws", "latency_ms": 1150.6, "margin": 7.1468, "pred": "Compliance With Laws"}
+{"id": "va0177", "label": "Tax Withholdings", "latency_ms": 1338.1, "margin": 7.8072, "pred": "Tax Withholdings"}
+{"id": "va0178", "label": "Base Salary", "latency_ms": 912.5, "margin": 7.9964, "pred": "Base Salary"}
+{"id": "va0179", "label": "Confidentiality", "latency_ms": 1304.7, "margin": 6.5814, "pred": "Confidentiality"}
+{"id": "va0180", "label": "Base Salary", "latency_ms": 1226.2, "margin": 3.1072, "pred": "Benefits"}
+{"id": "va0181", "label": "Non-Disparagement", "latency_ms": 1120.0, "margin": 6.7231, "pred": "Non-Disparagement"}
+{"id": "va0182", "label": "Vacations", "latency_ms": 881.5, "margin": 10.031, "pred": "Vacations"}
+{"id": "va0183", "label": "Vacations", "latency_ms": 875.6, "margin": 9.786, "pred": "Vacations"}
+{"id": "va0184", "label": "Tax Withholdings", "latency_ms": 966.0, "margin": 9.3278, "pred": "Tax Withholdings"}
+{"id": "va0185", "label": "Benefits", "latency_ms": 1423.4, "margin": 10.211, "pred": "Benefits"}
+{"id": "va0186", "label": "Compliance With Laws", "latency_ms": 1128.3, "margin": 8.9115, "pred": "Compliance With Laws"}
+{"id": "va0187", "label": "Terminations", "latency_ms": 1339.1, "margin": 7.5843, "pred": "Terminations"}
+{"id": "va0188", "label": "Confidentiality", "latency_ms": 1388.3, "margin": 1.7189, "pred": "Terminations"}
+{"id": "va0189", "label": "Confidentiality", "latency_ms": 1198.4, "margin": 8.0626, "pred": "Confidentiality"}
+{"id": "va0190", "label": "Terminations", "latency_ms": 1125.7, "margin": 7.2973, "pred": "Terminations"}
+{"id": "va0191", "label": "Confidentiality", "latency_ms": 1098.8, "margin": 7.4647, "pred": "Confidentiality"}
+{"id": "va0192", "label": "Tax Withholdings", "latency_ms": 1125.5, "margin": 7.7252, "pred": "Tax Withholdings"}
+{"id": "va0193", "label": "Tax Withholdings", "latency_ms": 958.0, "margin": 6.2507, "pred": "Tax Withholdings"}
+{"id": "va0194", "label": "Non-Disparagement", "latency_ms": 1047.8, "margin": 3.3895, "pred": "Non-Disparagement"}
+{"id": "va0195", "label": "Terminations", "latency_ms": 818.6, "margin": 10.6621, "pred": "Terminations"}
+{"id": "va0196", "label": "Non-Disparagement", "latency_ms": 836.7, "margin": 7.7622, "pred": "Non-Disparagement"}
+{"id": "va0197", "label": "Base Salary", "latency_ms": 787.8, "margin": 6.9655, "pred": "Base Salary"}
+{"id": "va0198", "label": "Benefits", "latency_ms": 851.1, "margin": 6.5676, "pred": "Benefits"}
+{"id": "va0199", "label": "Terminations", "latency_ms": 1025.6, "margin": 8.621, "pred": "Terminations"}

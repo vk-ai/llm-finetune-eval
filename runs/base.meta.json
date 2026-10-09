@@ -1,0 +1,18 @@
+{
+  "system": "base",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": null,
+  "split": "test",
+  "n": 320,
+  "accuracy": 0.7219,
+  "wall_time_s": 355.3,
+  "hardware": {
+    "cpu": "Intel(R) Xeon(R) Processor",
+    "logical_cpus": 8,
+    "torch_threads": 8,
+    "ram_gb": 15.6,
+    "gpu": false,
+    "torch": "2.14.1+cpu",
+    "python": "3.12.14"
+  }
+}

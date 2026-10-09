@@ -1,0 +1,15 @@
+{
+  "threshold": 0.8,
+  "n_test": 320,
+  "n_near_duplicate": 17,
+  "accuracy": {
+    "base": {
+      "near_duplicate": 0.7059,
+      "rest": 0.7228
+    },
+    "finetuned": {
+      "near_duplicate": 1.0,
+      "rest": 0.9538
+    }
+  }
+}

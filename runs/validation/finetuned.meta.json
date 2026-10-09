@@ -1,0 +1,18 @@
+{
+  "system": "finetuned",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": "artifacts/adapter",
+  "split": "validation",
+  "n": 200,
+  "accuracy": 0.96,
+  "wall_time_s": 207.1,
+  "hardware": {
+    "cpu": "Intel(R) Xeon(R) Processor",
+    "logical_cpus": 8,
+    "torch_threads": 8,
+    "ram_gb": 15.6,
+    "gpu": false,
+    "torch": "2.14.1+cpu",
+    "python": "3.12.14"
+  }
+}

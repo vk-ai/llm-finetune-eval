@@ -1,0 +1,42 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "check": "macro_f1 drop",
+      "baseline": 0.9559,
+      "current": 0.6957,
+      "rule": ">= baseline - 0.0",
+      "ok": false
+    },
+    {
+      "check": "accuracy drop",
+      "baseline": 0.9563,
+      "current": 0.7219,
+      "rule": ">= baseline - 0.0",
+      "ok": false
+    },
+    {
+      "check": "macro_f1 floor",
+      "current": 0.6957,
+      "rule": ">= 0.8",
+      "ok": false
+    },
+    {
+      "check": "McNemar vs baseline",
+      "baseline": "b=80",
+      "current": "c=5",
+      "rule": "not significantly worse (p=1.81e-18, alpha=0.05)",
+      "ok": false
+    },
+    {
+      "check": "macro_f1 improvement",
+      "baseline": 0.9559,
+      "current": 0.6957,
+      "rule": "delta >= 0.05, permutation p < 0.05, 95% CI low > 0 (delta -0.2602, CI [-0.3029, -0.2203], p=0.000999)",
+      "ok": false
+    }
+  ],
+  "notes": [
+    "baseline = finetuned, candidate = base, n = 320"
+  ]
+}
