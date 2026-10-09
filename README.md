@@ -145,7 +145,7 @@ into `artifacts/adapter`, and run the two `predict` commands.
   log-prob computation to 1e-4. Predictions are always valid labels. Also
   covers the chat-template and plain prompt paths, and truncation.
 - `test_train.py`: our answer-only loss equals HF's own masked LM loss. LoRA
-  learns a toy 8-class task to 100% while every base weight stays bit-identical.
+  learns a toy 8-class task (>= 87.5% accuracy, from near chance) while every base weight stays bit-identical.
   Also covers an adapter save/load round trip, and gradient checkpointing with
   grad accumulation.
 - `test_gating.py`: the gate passes a clear improvement and fails swapped roles
