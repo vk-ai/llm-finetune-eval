@@ -73,14 +73,20 @@ def cmd_predict(a):
     if a.limit:
         rows = rows[: a.limit]
     t0 = time.perf_counter()
-    preds = LabelScorer(model, tok, LABELS, a.max_text_tokens).predict(rows, _progress(a.name))
+    shots = None
+    if a.shots:
+        from .prompts import select_shots
+
+        shots = select_shots(read_jsonl(Path(a.data) / "train.jsonl"), a.shots, a.shot_seed)
+    preds = LabelScorer(model, tok, LABELS, a.max_text_tokens, shots, a.shot_tokens).predict(rows, _progress(a.name))
     out = Path(a.runs)
     out.mkdir(parents=True, exist_ok=True)
     path = out / f"{a.name}.jsonl"
     path.write_text("".join(json.dumps(p, sort_keys=True) + "\n" for p in preds))
     acc = sum(p["pred"] == p["label"] for p in preds) / len(preds)
     meta = {"system": a.name, "model": a.model, "adapter": a.adapter, "split": a.split, "n": len(preds),
-            "accuracy": round(acc, 4), "wall_time_s": round(time.perf_counter() - t0, 1), "hardware": hardware()}
+            "accuracy": round(acc, 4), "shots": [{"id": x["id"], "label": x["label"]} for x in shots or []],
+            "shot_seed": a.shot_seed if shots else None, "wall_time_s": round(time.perf_counter() - t0, 1), "hardware": hardware()}
     (out / f"{a.name}.meta.json").write_text(json.dumps(meta, indent=2) + "\n")
     print(f"{a.name}: accuracy {acc:.4f} on {len(preds)} {a.split} rows -> {path}")
 
@@ -114,6 +120,20 @@ def cmd_gate(a):
     if a.out:
         Path(a.out).write_text(json.dumps({"passed": res.passed, "checks": res.checks, "notes": res.notes}, indent=2) + "\n")
     return 0 if res.passed else 1
+
+
+def cmd_seeds(a):
+    from .gating import seeds_summary, write_json
+
+    rep = seeds_summary(Path(a.data), Path(a.runs), LABELS, a.baselines, a.candidates, Path(a.rules))
+    write_json(Path(a.out), rep)
+    for name, m in rep["systems"].items():
+        print(f"{name:18s} accuracy {m['accuracy']:.4f}  macro-F1 {m['macro_f1']:.4f}")
+    for b, agg in rep["candidates_vs"].items():
+        print(f"fine-tune over {len(a.candidates)} seeds: macro-F1 {agg['macro_f1_mean']:.4f} +/- {agg['macro_f1_sd']:.4f} "
+              f"(min {agg['macro_f1_min']:.4f}, max {agg['macro_f1_max']:.4f}); vs {b}: "
+              f"gate passed {agg['gates_passed']}/{len(a.candidates)}")
+    return 0 if rep["all_gates_passed"] else 1
 
 
 def main(argv=None) -> int:
@@ -153,7 +173,19 @@ def main(argv=None) -> int:
     s.add_argument("--limit", type=int)
     s.add_argument("--max-text-tokens", type=int, default=192)
     s.add_argument("--threads", type=int)
+    s.add_argument("--shots", type=int, default=0, help="k-shot demos from train (stratified by class); 0 = zero-shot")
+    s.add_argument("--shot-seed", type=int, default=0)
+    s.add_argument("--shot-tokens", type=int, default=96, help="truncate each demo provision to N tokens")
     s.set_defaults(fn=cmd_predict)
+
+    s = sub.add_parser("seeds", help="mean +/- sd over fine-tune seeds; gate every seed against every baseline")
+    s.add_argument("--data", default="data")
+    s.add_argument("--runs", default="runs")
+    s.add_argument("--rules", default="gate.yaml")
+    s.add_argument("--baselines", nargs="+", default=["base", "base_5shot"])
+    s.add_argument("--candidates", nargs="+", default=["finetuned", "finetuned_seed1", "finetuned_seed2"])
+    s.add_argument("--out", default="reports/seeds.json")
+    s.set_defaults(fn=cmd_seeds)
 
     s = sub.add_parser("report", help="metrics + CIs + paired tests via llm-eval-lab")
     s.add_argument("--data", default="data")

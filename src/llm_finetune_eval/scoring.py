@@ -10,22 +10,36 @@ import time
 
 import torch
 
-from .prompts import answer_ids, prompt_ids
+from .prompts import answer_ids, prompt_ids, shared_prefix_ids
 
 
 class LabelScorer:
-    def __init__(self, model, tokenizer, labels: tuple[str, ...], max_text_tokens: int = 192):
+    def __init__(self, model, tokenizer, labels: tuple[str, ...], max_text_tokens: int = 192,
+                 shots: list[dict] | None = None, shot_tokens: int = 96):
         self.model = model
         self.tok = tokenizer
         self.labels = labels
         self.max_text_tokens = max_text_tokens
+        self.shots = shots or None
+        self.shot_tokens = shot_tokens
         self.answers = {l: answer_ids(tokenizer, l) for l in labels}
+        self.prefix = shared_prefix_ids(tokenizer, labels, self.shots, shot_tokens)
+        self._prefix_cache = None
 
     @torch.no_grad()
     def scores(self, text: str) -> dict[str, float]:
         self.model.eval()
-        p = torch.tensor([prompt_ids(self.tok, text, self.labels, self.max_text_tokens)])
-        out = self.model(input_ids=p, use_cache=True)
+        ids = prompt_ids(self.tok, text, self.labels, self.max_text_tokens, self.shots, self.shot_tokens)
+        n = len(self.prefix)
+        if n and ids[:n] == self.prefix and len(ids) > n:
+            # few-shot demos are identical for every item: encode them once, then crop back to them
+            if self._prefix_cache is None:
+                self._prefix_cache = self.model(input_ids=torch.tensor([self.prefix]), use_cache=True).past_key_values
+            cache = self._prefix_cache
+            cache.crop(n)
+            out = self.model(input_ids=torch.tensor([ids[n:]]), past_key_values=cache, use_cache=True)
+        else:
+            out = self.model(input_ids=torch.tensor([ids]), use_cache=True)
         cache = out.past_key_values
         first = torch.log_softmax(out.logits[0, -1].float(), -1)
         res = {}
