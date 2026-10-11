@@ -111,3 +111,38 @@ def load_rules(path: Path) -> dict:
 def write_json(path: Path, obj: dict) -> None:
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     Path(path).write_text(json.dumps(obj, indent=2) + "\n")
+
+
+def seeds_summary(data_dir: Path, runs_dir: Path, labels: tuple[str, ...], baselines: list[str], candidates: list[str],
+                  rules_path: Path) -> dict:
+    """Each fine-tune seed through the full gate against each baseline, plus mean / sample-sd / range."""
+    import statistics
+
+    rules = load_rules(rules_path)
+    test = Path(data_dir) / "test.jsonl"
+    out = {"testset": {"sha256": file_sha256(test)}, "systems": {}, "gates": [], "candidates_vs": {}}
+    for b in baselines:
+        f1s, accs, passed = [], [], 0
+        for c in candidates:
+            rep = build_report(test, runs_dir, [b, c], labels, b, c)
+            for s in (b, c):
+                m = rep["systems"][s]
+                out["systems"][s] = {"accuracy": round(m["accuracy"], 4), "macro_f1": round(m["macro_f1"], 4),
+                                     "ci_macro_f1": m["ci"]["macro_f1"]}
+            res = gate(rep, runs_dir, data_dir, rules, b, c)
+            perm = rep["comparison"]["permutation"]["macro_f1"]
+            out["gates"].append({"baseline": b, "candidate": c, "passed": res.passed,
+                                 "macro_f1_delta": round(perm["delta"], 4),
+                                 "delta_ci": [round(perm["ci_low"], 4), round(perm["ci_high"], 4)],
+                                 "p_value": perm["p_value"], "mcnemar": rep["comparison"]["mcnemar"]})
+            f1s.append(rep["systems"][c]["macro_f1"])
+            accs.append(rep["systems"][c]["accuracy"])
+            passed += res.passed
+        sd = statistics.stdev if len(f1s) > 1 else (lambda x: 0.0)
+        out["candidates_vs"][b] = {
+            "macro_f1_mean": round(statistics.mean(f1s), 4), "macro_f1_sd": round(sd(f1s), 4),
+            "macro_f1_min": round(min(f1s), 4), "macro_f1_max": round(max(f1s), 4),
+            "accuracy_mean": round(statistics.mean(accs), 4), "accuracy_sd": round(sd(accs), 4),
+            "baseline_macro_f1": out["systems"][b]["macro_f1"], "gates_passed": passed, "n_seeds": len(candidates)}
+    out["all_gates_passed"] = all(g["passed"] for g in out["gates"])
+    return out

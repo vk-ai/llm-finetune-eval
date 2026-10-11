@@ -39,6 +39,10 @@ jobs:
           lfe gate
           # negative control: the base model as the candidate must FAIL against the fine-tune
           if lfe gate --baseline finetuned --candidate base > /dev/null; then echo "negative control passed?!"; exit 1; fi
+      - name: Fair baselines (5-shot base x3, LoRA seeds x3) reproduce and every seed passes the gate
+        run: |
+          lfe seeds --baselines base base_5shot base_5shot_s1 base_5shot_s2 --out /tmp/seeds.json
+          cmp <(python -m json.tool --sort-keys /tmp/seeds.json) <(python -m json.tool --sort-keys reports/seeds.json)
 
   smoke-finetune:
     # Optional end-to-end run on a 4.9 MB random-weight Qwen2 test model: train 3 LoRA steps,

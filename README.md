@@ -10,10 +10,45 @@ pass/fail decision with bootstrap CIs and paired significance tests.
 > **Learning project.** I built this to practise parameter-efficient
 > fine-tuning and checking whether a fine-tune is actually better. It is not
 > used in production anywhere, and nothing here comes from an employer. All
-> the numbers below are from one real run on a CPU box. See
+> the numbers below are from real runs on a CPU box: the original seed-0 run,
+> plus (since round 6) two more LoRA seeds and three 5-shot base-model prompts. See
 > [What is real vs stubbed](#what-is-real-vs-stubbed).
 
-## Results (real run, test set n = 320)
+## Fair baselines: 5-shot base model and 3 LoRA seeds (real runs, n = 320)
+
+The first version compared the fine-tune only with a **zero-shot** base model,
+from **one** training run. Both make a fine-tune look better than it is, so
+these were added (`lfe predict --shots 5`, `lfe seeds`, `reports/seeds.json`):
+
+| System | Macro-F1 | Accuracy |
+|---|---|---|
+| Base, zero-shot | 0.696 | 0.722 |
+| Base, 5-shot, demo set 0 | 0.806 | 0.803 |
+| Base, 5-shot, demo set 1 | 0.777 | 0.772 |
+| Base, 5-shot, demo set 2 | 0.769 | 0.766 |
+| **Base, 5-shot, mean ± sd over 3 demo sets** | **0.784 ± 0.019** | 0.781 |
+| LoRA seed 0 / 1 / 2 | 0.956 / 0.956 / 0.959 | 0.956 / 0.956 / 0.959 |
+| **LoRA, mean ± sd over 3 seeds** | **0.957 ± 0.002** | 0.957 ± 0.002 |
+
+- **Few-shot helps the base model a lot**, raising macro-F1 by 0.07–0.11. Which
+  demos you pick matters (0.77–0.81): each 5-shot set covers only 5 of the 8
+  classes (one random training example each, so test items never appear in the prompt).
+- **The fine-tune's gain shrinks but holds.** Against the best 5-shot prompt it is
+  +0.150 macro-F1 (paired-bootstrap 95% CI [+0.116, +0.192]); against the
+  5-shot mean it is about +0.17. Against zero-shot it was +0.26.
+- **Seed spread is small** (sd 0.002, range 0.956–0.959). Seeds 0 and 1 land on
+  the same macro-F1 with different per-item predictions.
+- **Gate:** all 12 seed × baseline pairs **PASS** the llm-eval-lab gate
+  (drop limits, the 0.80 floor, McNemar, and must-improve with Δ ≥ 0.05, p < 0.05
+  and CI low > 0). For example, best 5-shot vs seed 0: McNemar b = 0, c = 49.
+  The permutation p = 0.001 in every pair is the floor for 1,000 resamples.
+- **Extra cost:** each extra seed trained in 1,599 s and 2,131 s on a CPU box shared
+  with other jobs (seed 0 took 1,097 s on a quieter box). Seed 2 was restarted
+  with 4 threads after it stalled under contention; seed 1 was trained with 8
+  threads. 5-shot scoring took 450–525 s per demo set, with the shared demo
+  prefix KV-cached.
+
+## Results, original single run (test set n = 320)
 
 | | Base (zero-shot) | LoRA fine-tune |
 |---|---|---|
@@ -138,7 +173,7 @@ into `artifacts/adapter`, and run the two `predict` commands.
 
 ## Tests and CI
 
-`pytest -q`: **23 passed**. The tests never download a model. They build a
+`pytest -q`: **27 passed** (4 added for few-shot and seeds). The tests never download a model. They build a
 2-layer random-init `Qwen2ForCausalLM` and a word-level tokenizer in memory.
 
 - `test_prompts_scoring.py`: KV-cached label scores equal a full-sequence
@@ -153,6 +188,7 @@ into `artifacts/adapter`, and run the two `predict` commands.
   missing predictions. The CLI exit codes and step summary are checked. The
   committed `reports/eval.json` is recomputed from the committed per-example
   runs, and the gate passes on it.
+- `test_fewshot_seeds.py`: k-shot demos are stratified, seeded and taken from train only. Every few-shot prompt starts with the shared prefix, and cached few-shot scores equal full-sequence log-probs to 1e-4 (including cache reuse and crop). `seeds_summary` gives the right mean, sd and range, and fails a seed that's no better than the baseline.
 - `test_data.py`: balanced, seeded sampling. No exact duplicate crosses splits.
   The committed files match their manifest hashes.
 
@@ -167,15 +203,15 @@ plumbing only; the random model is expected to fail the improvement rule.
 ## What is real vs stubbed
 
 **Real**
-- The fine-tune: real Qwen2.5-0.5B-Instruct weights, real LoRA via `peft`, real backprop on CPU, one run, with the numbers above copied from `reports/*.json`.
+- The fine-tune: real Qwen2.5-0.5B-Instruct weights, real LoRA via `peft`, real backprop on CPU, 3 seeds, with the numbers above copied from `reports/*.json`.
 - The data: real contract provisions from public SEC filings (LEDGAR), with real labels.
 - The evaluation: every per-example prediction for both models is committed in `runs/`, and the statistics and gate are llm-eval-lab's code.
 
 **Simulated, simplified or worth a caveat**
 - **Task size.** 8 classes, 800 training and 320 test examples. LEDGAR has 100 classes, and this is a subset I chose by hand for the HR/compliance angle.
-- **No hyperparameter search.** One configuration (r 8, lr 2e-4, 1 epoch), picked before training and run once with seed 0. There is no seed variance, so the CIs cover test-set sampling, not training randomness.
+- **No hyperparameter search.** One configuration (r 8, lr 2e-4, 1 epoch), picked before training. It was run with 3 seeds (0, 1, 2). Three seeds is a small sample for estimating variance, and the bootstrap CIs per run still cover only test-set sampling.
 - **Tuning after seeing results.** No hyperparameter, prompt or threshold was changed after looking at any fine-tuned number. `gate.yaml` was written before the fine-tune finished. I looked at the base model's *validation* errors before training, but nothing was changed because of them. The test set was scored once per model.
-- **The base model gets a fair but simple setup.** It is zero-shot, with the same prompt and rank-classification scoring. A few-shot prompt or a bigger model would probably narrow the gap, and I did not try either.
+- **The base-model baselines are zero-shot and 5-shot.** All use the same prompt and rank-classification scoring. 5-shot uses 3 random stratified demo sets covering 5 of 8 classes each, and demos are truncated to 96 tokens. I did not try 8-shot (one per class), retrieval-chosen demos, prompt tuning or a bigger base model; any of those could narrow the gap further.
 - **Contamination.** Only exact duplicates are removed. `scripts/near_duplicates.py` finds 17 of 320 test items with ≥ 0.8 word-Jaccard similarity to some training item. The fine-tune scores 1.000 on those and 0.954 on the other 303 (base: 0.706 / 0.723), so they barely move the headline (`reports/near_duplicates.json`).
 - **Not instruction-following quality.** The model is scored by ranking the 8 label strings, not by free generation. It was not checked for regressions on general chat ability, and the gate only covers this task.
 - **Latency** is per-item scoring on a shared CPU VM with 8 forward passes per item (1 prompt + 8 short label continuations); it is not a serving benchmark. No cost comparison or llm-platform-k8s routing is included.
