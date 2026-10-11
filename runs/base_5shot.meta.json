@@ -1,0 +1,41 @@
+{
+  "system": "base_5shot",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": null,
+  "split": "test",
+  "n": 320,
+  "accuracy": 0.8031,
+  "shots": [
+    {
+      "id": "tr0583",
+      "label": "Base Salary"
+    },
+    {
+      "id": "tr0696",
+      "label": "Benefits"
+    },
+    {
+      "id": "tr0679",
+      "label": "Tax Withholdings"
+    },
+    {
+      "id": "tr0430",
+      "label": "Non-Disparagement"
+    },
+    {
+      "id": "tr0133",
+      "label": "Compliance With Laws"
+    }
+  ],
+  "shot_seed": 0,
+  "wall_time_s": 523.4,
+  "hardware": {
+    "cpu": "Intel(R) Xeon(R) Processor",
+    "logical_cpus": 8,
+    "torch_threads": 4,
+    "ram_gb": 15.6,
+    "gpu": false,
+    "torch": "2.14.1+cpu",
+    "python": "3.12.14"
+  }
+}
